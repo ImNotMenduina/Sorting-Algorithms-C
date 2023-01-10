@@ -34,7 +34,6 @@ void merge(int init , int mid , int fim , int*  v)
     {
         while(v[a] <= v[b]) helper[k++] = v[a++] ;   
         while(v[b] > v[a]) helper[k++] = v[b++]  ; 
-
     }
 
 }
