@@ -26,7 +26,7 @@ void mergesort(int init , int fim , int*v)
 void merge(int init , int mid , int fim , int*  v)
 {
     int a = init ; 
-    int b = meio + 1 ; 
+    int b = mid + 1 ; 
     int helper[fim] ; 
     
     while(a <= mid && b < fim)
