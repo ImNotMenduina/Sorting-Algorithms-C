@@ -10,6 +10,9 @@ int main()
 
     mergesort(0 , tam , v) ;  // (0 , 5 , v) 
 
+    for(int i=0 ; i<tam ; i++)
+        printf("%d " , v[i]) ; 
+
     return 0 ; 
 }
 
@@ -36,5 +39,12 @@ void merge(int init , int mid , int fim , int*  v)
         while(v[b] > v[a]) helper[k++] = v[b++]  ; 
     }
 
+    while(a <= mid) helper[k++] = v[a++] ; 
+    while(b < fim) helper[k++] = v[b++] ; 
+
+    for(int i=0 ; i<fim ; i++)
+    {
+        v[fim - i] = helper[i] ; 
+    }
 }
 
