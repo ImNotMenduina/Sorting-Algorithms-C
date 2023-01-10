@@ -28,23 +28,25 @@ void mergesort(int init , int fim , int*v)
 }
 void merge(int init , int mid , int fim , int*  v)
 {
-    int a = init ; 
-    int b = mid + 1 ; 
-    int helper[fim] ; 
-    int k = 0 ; 
-    
-    while(a <= mid && b < fim)
-    {
-        while(v[a] <= v[b]) helper[k++] = v[a++] ;   
-        while(v[b] > v[a]) helper[k++] = v[b++]  ; 
-    }
+    if(fim > 1){
+            int a = init ; 
+            int b = mid + 1 ; 
+            int helper[fim] ; 
+            int k = 0 ; 
+            
+            while(a <= mid && b < fim)
+            {
+                while(v[a] <= v[b]) helper[k++] = v[a++] ;   
+                while(v[b] > v[a]) helper[k++] = v[b++]  ; 
+            }
 
-    while(a <= mid) helper[k++] = v[a++] ; 
-    while(b < fim) helper[k++] = v[b++] ; 
+            while(a <= mid) helper[k++] = v[a++] ; 
+            while(b < fim) helper[k++] = v[b++] ; 
 
-    for(int i=0 ; i<fim ; i++)
-    {
-        v[fim - i] = helper[i] ; 
-    }
+            for(int i=0 ; i<fim ; i++)
+            {
+                v[fim - i] = helper[i] ; 
+            }
+        }
 }
 
