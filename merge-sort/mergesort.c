@@ -6,19 +6,19 @@ void merge(int init , int mid , int fim , int* v) ;
 int main()
 {
     int v[] = {99 , 43 , 2 , 11 , 5 , 8} ; 
-
-    int tam = 3; 
+    int tam = 6; 
 
     mergesort(0 , tam , v) ;  // (0 , 5 , v) 
 
-    
+    for(int i=0 ; i<tam ; i++)
+        printf("%d " , v[i]) ; 
 
     return 0 ; 
 }
 
 void mergesort(int init , int fim , int* v)
 {
-    if(fim > 1)
+    if(init < fim-1)
     {
         int meio = (init + fim)/2 ; 
         mergesort(init , meio , v) ; 
@@ -29,23 +29,22 @@ void mergesort(int init , int fim , int* v)
 void merge(int init , int mid , int fim , int*  v)
 {
             int a = init ; 
-            int b = mid + 1 ; 
+            int b = mid ; 
             int helper[fim - init] ; 
             int k = 0 ; 
             
-            while(a <= mid && b < fim)
+            while(a < mid && b < fim)
             {
-                while(v[a] <= v[b]) helper[k++] = v[a++] ;   
-                while(v[b] > v[a]) helper[k++] = v[b++]  ; 
+                if(v[a] <= v[b]) helper[k++] = v[a++] ;   
+                else helper[k++] = v[b++]  ; 
             }
 
-            while(a <= mid) helper[k++] = v[a++] ; 
+            while(a < mid) helper[k++] = v[a++] ; 
             while(b < fim) helper[k++] = v[b++] ; 
 
-            for(int i=0 ; i<fim ; i++)
+            for(int i=init ; i<fim ; ++i)
             {
-                v[fim - i] = helper[i] ; 
-            }
-        
+                v[i] = helper[i - init] ; 
+            }   
 }
 
